@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service Id_Manager {
+    rpc getId (req) returns (res) {}
+    rpc setId (req) returns (res) {}
+}
+
+message req {
+    string params = 1;
+}
+
+message res {
+    string data = 1;
+}
