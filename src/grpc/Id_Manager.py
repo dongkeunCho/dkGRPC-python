@@ -6,10 +6,9 @@ class Id_Manager(grpc_pb2_grpc.Id_ManagerServicer):
     def __init__(self):
         self.id = "None"
 
-    def getId(self, request, context):
-        return self.id
-
     def setId(self, request, context):
-        params = json.loads(request.params)
-        self.id = params['id']
-        return grpc_pb2.Response(data=self.id)
+        self.id = request.id
+        return grpc_pb2.res(id=None)
+  
+    def getId(self, request, context):
+        return grpc_pb2.res(id=self.id)

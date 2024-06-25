@@ -8,8 +8,11 @@ def run():
     # of the code.
     with grpc.insecure_channel("localhost:50051") as channel:
         stub = grpc_pb2_grpc.Id_ManagerStub(channel)
-        res = stub.getId(grpc_pb2.req(params="e"))
-        print(res.data)
+        stub.setId(grpc_pb2.req(id="1001"))
+
+        stub = grpc_pb2_grpc.Id_ManagerStub(channel)
+        res = stub.getId(grpc_pb2.req(id=None))
+        print(res.id)
     
 
 if __name__ =="__main__":

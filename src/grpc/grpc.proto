@@ -6,9 +6,9 @@ service Id_Manager {
 }
 
 message req {
-    string params = 1;
+    string id = 1;
 }
 
 message res {
-    string data = 1;
+    string id = 1;
 }
